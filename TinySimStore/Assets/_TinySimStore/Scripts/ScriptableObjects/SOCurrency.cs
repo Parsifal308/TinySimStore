@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SOCurrency : MonoBehaviour
+namespace TinySimStore.DB
 {
-    // Start is called before the first frame update
-    void Start()
+    [CreateAssetMenu(fileName = "New Currency", menuName = "Tiny Sim Store/Currency")]
+    public class SOCurrency : ScriptableObject
     {
-        
-    }
+        #region FIELDS
+        [SerializeField] private string currencyName;
+        [SerializeField] private string description;
+        [SerializeField] private Sprite icon;
+        #endregion
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        #region PROPERTIES
+        #endregion
+
+        #region UNITY METHODS
+        #endregion
+
+        #region PRIVATE METHODS
+        #endregion
+
+        #region PUBLIC METHODS
+        #endregion
     }
 }

@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquippableItem : MonoBehaviour
+namespace TinySimStore.Item
 {
-    // Start is called before the first frame update
-    void Start()
+    public class EquippableItem : ItemBase, IEquippable
     {
-        
-    }
+        #region FIELDS
+        #endregion
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        #region PROPERTIES
+        #endregion
+
+        #region UNITY METHODS
+        #endregion
+
+        #region PRIVATE METHODS
+        #endregion
+
+        #region PUBLIC METHODS
+        #endregion
     }
 }

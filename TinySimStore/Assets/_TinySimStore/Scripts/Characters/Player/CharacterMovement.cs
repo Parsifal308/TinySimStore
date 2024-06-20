@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using TinySimStore.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace TinySimStore.Player
+namespace TinySimStore.Character.Player
 {
 
     [RequireComponent(typeof(Rigidbody2D))]

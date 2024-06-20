@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace TinySimStore.Player
+namespace TinySimStore.Character.Player
 {
     [RequireComponent(typeof(PlayerInput))]
     public class PlayerManager : Singleton<PlayerManager>

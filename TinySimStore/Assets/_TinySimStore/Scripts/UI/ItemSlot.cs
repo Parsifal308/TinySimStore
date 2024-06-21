@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TinySimStore.Character.Player;
 using TinySimStore.DB;
+using TinySimStore.Manager;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,27 +16,50 @@ public class ItemSlot : MonoBehaviour
     [SerializeField] private Image equippedIcon;
     [SerializeField] private Button equipButton;
     [SerializeField] private Button unequipButton;
+    [SerializeField] private Button buyButton;
+    [SerializeField] private Button sellButton;
+    private int itemIndex;
     #endregion
 
     #region PROPERTIES
+    public int ItemIndex { get { return itemIndex; } set { itemIndex = value; } }
     public TextMeshProUGUI ItemName { get { return itemName; } }
     public Image ItemIcon { get { return itemIcon; } }
     public Button EquipButton { get { return equipButton; } }
+    public Button UnequipButton { get { return unequipButton; } }
+    public Button BuyButton { get { return buyButton; } }
+    public Button SellButton { get { return sellButton; } }
     #endregion
 
     #region UNITY METHODS
     private void Start()
     {
-        if (PlayerManager.Instance.CharacterInventory.Content[transform.GetSiblingIndex()] is SOEquippableItem)
-        {
-            AddEquipAction();
-            AddUnequipAction();
-        }
+
     }
     #endregion
 
     #region PRIVATE METHODS
-    private void AddEquipAction()
+    public void AddBuyAction()
+    {
+        sellButton.gameObject.SetActive(false);
+        UnityAction BuyAction = () =>
+        {
+            transform.SetParent(UIManager.Instance.Store.PlayerCart.transform);
+            buyButton.gameObject.SetActive(false);
+        };
+        buyButton?.onClick.AddListener(BuyAction);
+    }
+    public void AddSellAction()
+    {
+        buyButton.gameObject.SetActive(false);
+        UnityAction SellAction = () =>
+        {
+            transform.SetParent(UIManager.Instance.Store.VendorCart.transform);
+            sellButton.gameObject.SetActive(false);
+        };
+        sellButton?.onClick.AddListener(SellAction);
+    }
+    public void AddEquipAction()
     {
         UnityAction equipAction = () =>
         {
@@ -50,12 +74,11 @@ public class ItemSlot : MonoBehaviour
                 equippedIcon.enabled = false;
                 equipButton.gameObject.SetActive(true);
                 unequipButton.gameObject.SetActive(false);
-            }
-            //PlayerManager.Instance.CharacterEquipment.TryEquip(PlayerManager.Instance.CharacterInventory.Content[transform.GetSiblingIndex()] as SOEquippableItem);
+            }  
         };
-        equipButton.onClick.AddListener(equipAction);
+        equipButton?.onClick.AddListener(equipAction);
     }
-    private void AddUnequipAction()
+    public void AddUnequipAction()
     {
         UnityAction unequipAction = () =>
         {
@@ -72,7 +95,7 @@ public class ItemSlot : MonoBehaviour
                 unequipButton.gameObject.SetActive(true);
             }
         };
-        unequipButton.onClick.AddListener(unequipAction);
+        unequipButton?.onClick.AddListener(unequipAction);
         #endregion
 
         #region PUBLIC METHODS

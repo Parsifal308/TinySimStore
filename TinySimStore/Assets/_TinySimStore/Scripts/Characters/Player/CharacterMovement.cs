@@ -81,11 +81,11 @@ namespace TinySimStore.Character.Player
         {
             movementInput = context.ReadValue<Vector2>();
             animator.SetBool("IsMoving", true);
-            if (movementInput.x==1)
+            if (movementInput.x>0f)
             {
                 animator.transform.rotation=Quaternion.Euler(0, 0, 0);
             }
-            else
+            else if (movementInput.x<0f) 
             {
                 animator.transform.rotation = Quaternion.Euler(0, 180, 0);
             }

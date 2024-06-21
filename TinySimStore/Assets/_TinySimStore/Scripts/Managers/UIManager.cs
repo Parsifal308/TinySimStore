@@ -10,6 +10,9 @@ namespace TinySimStore.Manager
     public class UIManager : Singleton<UIManager>
     {
         #region FIELDS
+        private DialoguePanel dialoguePanel;
+        private StoreUI store;
+        private InventoryUI inventory;
         [Header("INPUT SETTINGS:"), Space(5)]
         [SerializeField] private string pauseActionName = "Pause";
         [SerializeField] private string inventoryActionName = "Inventory";
@@ -20,15 +23,25 @@ namespace TinySimStore.Manager
         [SerializeField] private CanvasGroup characterCanvas;
         [SerializeField] private CanvasGroup inventoryCanvas;
         [SerializeField] private CanvasGroup storeCanvas;
+        [SerializeField] private CanvasGroup dialogueCanvas;
+
         #endregion
 
         #region PROPERTIES
+        public InventoryUI Inventory { get { return inventory; } }
+        public StoreUI Store { get { return store; } }
+        public DialoguePanel DialoguePanel { get { return dialoguePanel; } }
+        public CanvasGroup DialogueCanvas { get { return dialogueCanvas; } }
+        public CanvasGroup StoreCanvas { get { return storeCanvas; } }
         #endregion
 
         #region UNITY METHODS
         private void Start()
         {
             SubscribeInput();
+            dialoguePanel = dialogueCanvas.GetComponent<DialoguePanel>();
+            store = storeCanvas.GetComponent<StoreUI>();
+            inventory= inventoryCanvas.GetComponent<InventoryUI>();
         }
         #endregion
 
@@ -113,7 +126,8 @@ namespace TinySimStore.Manager
             HideCanvas(inventoryCanvas);
             HideCanvas(characterCanvas);
             HideCanvas(storeCanvas);
-            if (pauseCanvas.alpha==1)
+            PlayerManager.Instance.CharacterMovement.enabled = true;
+            if (pauseCanvas.alpha == 1)
             {
                 HideCanvas(pauseCanvas);
             }

@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 3630767599
+    locked: 0
+  - name: GroundElements
+    uniqueID: 812233361
+    locked: 0
+  - name: Character
+    uniqueID: 3572403255
+    locked: 0
+  - name: HeightElements
+    uniqueID: 3861486261
+    locked: 0

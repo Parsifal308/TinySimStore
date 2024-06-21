@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/_TinySimStore/Scenes/MainMenu.unity
+    guid: 43aad1228e5a3c44d8726d719c88ee89
+  - enabled: 1
+    path: Assets/_TinySimStore/Scenes/ClothStore.unity
+    guid: 964b8ea99af75e8419b4e70ea945ef08
   m_configObjects: {}

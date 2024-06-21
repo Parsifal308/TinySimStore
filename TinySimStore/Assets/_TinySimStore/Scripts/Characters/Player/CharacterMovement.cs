@@ -11,6 +11,7 @@ namespace TinySimStore.Character.Player
     public class CharacterMovement : MonoBehaviour
     {
         #region FIELDS
+        private Animator animator;
         private Vector2 movementInput;
         private Rigidbody2D rb;
 
@@ -29,11 +30,13 @@ namespace TinySimStore.Character.Player
         {
             SubscribeInput();
             if (TryGetComponent<Rigidbody2D>(out Rigidbody2D rb)) this.rb = rb;
+            animator = GetComponentInChildren<Animator>();
         }
         private void FixedUpdate()
         {
             rb.MovePosition(rb.position + movementInput * Time.fixedDeltaTime * speed);
         }
+        
         #endregion
 
         #region PRIVATE METHODS
@@ -71,11 +74,21 @@ namespace TinySimStore.Character.Player
         private void MovementCanceled(InputAction.CallbackContext context)
         {
             movementInput = Vector2.zero;
+            animator.SetBool("IsMoving", false);
         }
 
         private void MovementPerformed(InputAction.CallbackContext context)
         {
             movementInput = context.ReadValue<Vector2>();
+            animator.SetBool("IsMoving", true);
+            if (movementInput.x==1)
+            {
+                animator.transform.rotation=Quaternion.Euler(0, 0, 0);
+            }
+            else
+            {
+                animator.transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
         }
         #endregion
     }

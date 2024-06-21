@@ -8,7 +8,24 @@ namespace TinySimStore.DB
     public class SOEquippableItem : SOItemBase
     {
         #region FIELDS
-        [SerializeField] private List<Sprite> equipmentSprite;
+        [SerializeField] protected List<Sprite> equipmentSprite;
+        [SerializeField] protected EquipableType equipableType;
         #endregion
+
+        #region PROPERTIES
+        public EquipableType EquipableType { get { return equipableType; } }
+        public List<Sprite> EquipmentSprite { get { return equipmentSprite; } }
+        #endregion
+    }
+    public enum EquipableType
+    {
+        Head,
+        Torso,
+        Pelvis,
+        Legs,
+        Boots,
+        Shoulders,
+        Arms,
+        Hands
     }
 }

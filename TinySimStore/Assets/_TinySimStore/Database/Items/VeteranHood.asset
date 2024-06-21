@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2240e16d41db9734aa1c086179a2f945, type: 3}
-  m_Name: Shoulder
+  m_Name: VeteranHood
   m_EditorClassIdentifier: 
-  itemName: Shoulder
+  itemName: Veteran Hood
   description: 
-  icon: {fileID: 21300000, guid: 7c0d0c89b736eb54cac31e27a02a92e5, type: 3}
+  icon: {fileID: 21300000, guid: f7e7bed775fff8347b9e53c67e20875f, type: 3}
   price:
-    amount: 21
+    amount: 27
     currency: {fileID: 11400000, guid: a7fd3f48372566b4da0bd47ce9ab0b22, type: 2}
   equipmentSprite:
-  - {fileID: 21300000, guid: 7c0d0c89b736eb54cac31e27a02a92e5, type: 3}
-  - {fileID: 21300000, guid: 893fc4b41b56e07479a71d811eee4b4e, type: 3}
+  - {fileID: 21300000, guid: f7e7bed775fff8347b9e53c67e20875f, type: 3}

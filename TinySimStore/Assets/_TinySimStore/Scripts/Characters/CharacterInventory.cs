@@ -4,6 +4,7 @@ using TinySimStore.DB;
 using System.Linq;
 using UnityEngine;
 using System;
+using TinySimStore.Manager;
 
 namespace TinySimStore.Inventory
 {
@@ -14,6 +15,7 @@ namespace TinySimStore.Inventory
         #endregion
 
         #region PROPERTIES
+        public List<SOItemBase> Content { get {  return content; } }
         #endregion
 
         #region UNITY METHODS
@@ -24,6 +26,9 @@ namespace TinySimStore.Inventory
         #endregion
 
         #region PUBLIC METHODS
+        public void UpdateUI()
+        {
+        }
         #endregion
     }
 }
